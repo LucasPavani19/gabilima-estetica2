@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabi Lima Estética</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="header-title">Gabi Lima</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="img/fundo01.jpg" alt="Tratamento facial 1" class="carousel-image active">
+                <img src="img/fundo02.jpg" alt="Tratamento facial 2" class="carousel-image">
+                <img src="img/fundo03.jpg" alt="Tratamento facial 3" class="carousel-image">
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1>Gabi Lima</h1>
+            <p>Transforme sua pele com tratamentos faciais exclusivos e personalizados. 
+               Descubra a harmonia perfeita entre tecnologia avançada e cuidados especializados 
+               para revelar sua beleza natural.</p>
+            <div class="hero-buttons">
+                <a href="#servicos" class="btn-primary">Conheça nossos tratamentos</a>
+                <a href="#sobre" class="btn-secondary">Sobre mim</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-container" id="servicos">
+        <h2 class="section-title">Nossos Tratamentos</h2>
+        <div class="services-grid">
+            <div class="service-card" data-service="Limpeza de Pele Simples" data-price="110,00">
+                <h3>Limpeza de Pele Simples</h3>
+                <p>Limpeza completa com higienização, esfoliação, aplicação de
+                    emoliente, vaporização de ozônio, extração e
+                    finalização personalizada para a sua pele.</p>
+                <div class="price">R$ 110,00</div>
+                <button class="select-service">Selecionar</button>
+            </div>
+
+            <div class="service-card" data-service="Limpeza Diamante" data-price="160,00">
+                <h3>Limpeza Diamante</h3>
+                <p>Inclui todos os passos da limpeza simples, mas substitui a
+                    esfoliação comum por um peeling de diamante, que renova e suaviza a pele.
+                    Finaliza com esfoliação e hidratação labial.</p>
+                <div class="price">R$ 160,00</div>
+                <button class="select-service">Selecionar</button>
+            </div>
+
+            <div class="service-card" data-service="Limpeza Premium" data-price="175,00">
+                <h3>Limpeza Premium</h3>
+                <p>Abrange todos os benefícios da limpeza Diamante e adiciona fototerapia
+                    LED, que melhora a elasticidade, reduz manchas e estimula o colágeno para uma pele
+                    mais firme e rejuvenescida.</p>
+                <div class="price">R$ 175,00</div>
+                <button class="select-service">Selecionar</button>
+            </div>
+        </div>
+
+        <!-- Formulário de Agendamento -->
+        <div class="booking-form" id="bookingForm">
+            <h3>Agendar Tratamento</h3>
+            <p class="selected-service-info">Tratamento selecionado: <span id="selectedService">Nenhum selecionado</span></p>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="name">Nome completo</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp</label>
+                    <input type="tel" id="whatsapp" name="whatsapp" 
+                           pattern="[0-9]{11}" 
+                           placeholder="11999999999"
+                           required>
+                </div>
+
+                <div style="text-align: center;">
+                    <button type="submit" class="btn-primary">Solicitar Agendamento via WhatsApp</button>
+                </div>
+               
+                <p class="consent-text">Ao continuar, você aceita que os dados fornecidos serão utilizados para contato com você, para agendamento de tratamentos e para envio de mensagens de marketing.</p>
+            </form>
+        </div>
+    </section>
+
+    <section class="about-section" id="sobre">
+        <img src="img/01.jpg" alt="Gabi Lima" class="profile-img">
+        <div class="about-content">
+            <h2>Sobre mim</h2>
+            <p>Com mais de 5 anos de experiência em estética, desenvolvi uma abordagem única que combina:</p>
+            <ul style="margin: 1.5rem 0; list-style: none;">
+                <li> Análise cutânea detalhada</li>
+                <li> Protocolos personalizados</li>
+                <li> Tecnologia de ponta</li>
+                <li> Produtos de alta qualidade	</li>
+            </ul>
+            <p>Meu compromisso é oferecer tratamentos que respeitem a individualidade de cada pele, garantindo resultados naturais e duradouros.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Gabi Lima Estética | Instagram: <a href="https://www.instagram.com/gabilima.estetica/?next=%2F" target="_blank">@GABILIMA.ESTETICA</a></p>
+    </footer>
+
+    <!-- Adicionar o script do EmailJS antes do seu script.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <!-- Inicializar o EmailJS com sua Public Key -->
+    <script type="text/javascript">
+       (function() {
+          emailjs.init("afwYf6RRsIfuFTf3U"); // Substitua pela sua chave pública do EmailJS
+       })();
+    </script>
+
+    <!-- Adicionar o script antes do fechamento do body -->
+    <script src="script.js"></script>
+
+    <!-- Adicionar validações extras no formulário -->
+    <script>
+    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validar formato do telefone
+        const whatsapp = document.getElementById('whatsapp').value;
+        if (!/^[0-9]{11}$/.test(whatsapp)) {
+            alert('Por favor, insira um número de WhatsApp válido');
+            return;
+        }
+        
+        // Validar nome (mínimo 3 caracteres)
+        const name = document.getElementById('name').value;
+        if (name.length < 3) {
+            alert('Por favor, insira um nome válido');
+            return;
+        }
+
+        // ... resto do código
+    });
+    </script>
+
+    <script>
+        function startCarousel() {
+            const images = document.querySelectorAll('.carousel-image');
+            let currentIndex = 0;
+
+            // Garante que a primeira imagem está visível
+            images[0].classList.add('active');
+
+            setInterval(() => {
+                // Remove a classe active da imagem atual
+                images[currentIndex].classList.remove('active');
+                
+                // Atualiza o índice para a próxima imagem
+                currentIndex = (currentIndex + 1) % images.length;
+                
+                // Adiciona a classe active na próxima imagem
+                images[currentIndex].classList.add('active');
+                
+                console.log('Mudando para imagem:', currentIndex); // Debug
+            }, 3000); // Muda a cada 3 segundos
+        }
+
+        // Inicia o carrossel quando a página carregar
+        window.addEventListener('load', startCarousel);
+    </script>
+</body>
+</html>
